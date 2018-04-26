@@ -1,12 +1,7 @@
-<ion-header color="azulClaro">
-
-  <ion-navbar>
-    <ion-title>mapa</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<!--se tiene que colocar exactamente lo que figura en la pagina, y solo se le agrega el termino [zoom]="16"
+para que el mapa tenga algo de zoom y no muestre la ubicacion desde lo mas alto-->
+<ion-content>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 </ion-content>

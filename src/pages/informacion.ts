@@ -16,3 +16,12 @@ se crea la el provider "historial" con el comando "ionic g provider historial" y
 /*commit configurando pagina guardados 
 en este commit de modifica el historial.ts, guardados.ts, guardados.html y se importa el 
 { InAppBrowser } from '@ionic-native/in-app-browser'*/
+
+/*commit agregando google maps
+se agrego el componente de google maps, para eso se ingresa a la pagina 
+https://angular-maps.com/guides/getting-started/ y se siguen los pasos, pero ya al tener todo el proyecto
+y el npm instalados empezamos desde esta linea de codigo npm install @agm/core --save
+con ella importaremosla libreria para utilizar google maps
+despues de eso, nos pide que creemos una api-key para nuestra app, la generaremos en 
+https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#key
+creamos la asociacion con nuestra app y aceptamos los terminos y condiciones */

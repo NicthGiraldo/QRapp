@@ -12,6 +12,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HistorialProvider } from '../providers/historial/historial';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+//mapas
+//se importa esta libreria y se coloca en los "imports" lo que figura en la pagina para igresar nuestra api-key
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,7 +26,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB3NVR0cY4ZVrIQtDvh-459ppCXVuXpNxA'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

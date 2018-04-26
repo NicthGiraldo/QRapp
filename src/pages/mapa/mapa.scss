@@ -1,3 +1,7 @@
 page-mapa {
-
+    agm-map {
+        height: 100%;
+    }
 }
+//se tiene que agregar esta clase para que el mapa aparezaca en pantalla, se le puede acomodar el tamaño que 
+//queramos, pero en esta ocacion se pone 100% para que aparezca de toda la pantalla 
