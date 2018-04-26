@@ -8,3 +8,7 @@ en este commit se implemento el plugin de cordova "Barcode Scanner" para impleme
 qr con la camara del celular, se realizaron varios cambios incluyendo en la carpeta "app.module.ts" (revisar 
 bien cual fue el cambio), se implemento tambien el mostrar aplicaciones en pantalla con "Toast" implementando 
 desde ionicframework*/
+
+/*commit guardando el scan en un array
+se crea la el provider "historial" con el comando "ionic g provider historial" y se implementa el modulo 
+"Platform" de 'ionic-angular' */
