@@ -12,3 +12,7 @@ desde ionicframework*/
 /*commit guardando el scan en un array
 se crea la el provider "historial" con el comando "ionic g provider historial" y se implementa el modulo 
 "Platform" de 'ionic-angular' */
+
+/*commit configurando pagina guardados 
+en este commit de modifica el historial.ts, guardados.ts, guardados.html y se importa el 
+{ InAppBrowser } from '@ionic-native/in-app-browser'*/
