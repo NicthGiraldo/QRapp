@@ -25,7 +25,9 @@ export class HomePage {
 //de no ser asi se esta ejecutando la aplicacion en el navegador web
 /*si se ejecuta en el navegador se le manda informacion falsa al array creado en "historial.ts" */
     if (!this.platform.is('cordova')) {
-      this._historialProvider.agregarHistorial("http://google.com");//se llama la funcion de "historial.ts"
+      //this._historialProvider.agregarHistorial("http://google.com");//se llama la funcion de "historial.ts"
+      this._historialProvider.agregarHistorial("geo: 6.3009426, -75.5687365");//se manda informacion simulando el  
+      //scan del dispositivo
       return;
     }
 //se trae toda la informacion de "barcodeData" y se muestra parte por parte para poder verla en la consola

@@ -5,3 +5,14 @@ para que el mapa tenga algo de zoom y no muestre la ubicacion desde lo mas alto-
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons end>
+      <!--se agrega un boton para cerrar el modal-->
+      <button ion-button (click)="cerrarModal()">
+        Cerrar
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

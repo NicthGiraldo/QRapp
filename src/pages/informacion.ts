@@ -25,3 +25,9 @@ con ella importaremosla libreria para utilizar google maps
 despues de eso, nos pide que creemos una api-key para nuestra app, la generaremos en 
 https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#key
 creamos la asociacion con nuestra app y aceptamos los terminos y condiciones */
+
+/*commit agregando nuevas coordenadas, separando info de arrays
+especial atencion en el apartado para dividir la informacion del string con splice
+se modificaron variables y al pagina de inicio de la aplicacion para simular el scaneo desde el dispositivo y 
+poder realizar las pruebas necesarioas, se creo un boton y se modifico tambien el modelo para que signara 
+un tipo mapa*/

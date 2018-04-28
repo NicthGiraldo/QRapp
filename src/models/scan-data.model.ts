@@ -8,6 +8,9 @@ export class ScanData{
         
         if(texto.startsWith("http")){
             this.tipo = "http";
+        }else if( texto.startsWith("geo")){//se coloca la condicional para determinar si es un mapa
+            //cuando se escanea con el dispositivo manda la informacion con la palabra reservada "geo" ese sera el identificador
+            this.tipo = "mapa";
         }
     }
 }
