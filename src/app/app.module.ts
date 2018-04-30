@@ -11,6 +11,7 @@ import { HomePage, GuardadosPage, MapaPage, TabsPage } from '../pages/index.pagi
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'; 
 import { HistorialProvider } from '../providers/historial/historial';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { Contacts } from '@ionic-native/contacts';
 
 //mapas
 //se importa esta libreria y se coloca en los "imports" lo que figura en la pagina para igresar nuestra api-key
@@ -44,6 +45,7 @@ import { AgmCoreModule } from '@agm/core';
     SplashScreen,
     BarcodeScanner,
     InAppBrowser,
+    Contacts,
     HistorialProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

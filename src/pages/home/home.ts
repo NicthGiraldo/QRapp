@@ -26,8 +26,18 @@ export class HomePage {
 /*si se ejecuta en el navegador se le manda informacion falsa al array creado en "historial.ts" */
     if (!this.platform.is('cordova')) {
       //this._historialProvider.agregarHistorial("http://google.com");//se llama la funcion de "historial.ts"
-      this._historialProvider.agregarHistorial("geo: 6.3009426, -75.5687365");//se manda informacion simulando el  
+      //this._historialProvider.agregarHistorial("geo: 40.46366700000001, -3.7492200000000366");//se manda informacion simulando el  
       //scan del dispositivo
+      this._historialProvider.agregarHistorial( `BEGIN:VCARD
+VERSION:2.1
+N:Kent;Clark
+FN:Clark Kent
+ORG:
+TEL;HOME;VOICE:12345
+TEL;TYPE=cell:67890
+ADR;TYPE=work:;;;
+EMAIL:clark@superman.com
+END:VCARD` );
       return;
     }
 //se trae toda la informacion de "barcodeData" y se muestra parte por parte para poder verla en la consola

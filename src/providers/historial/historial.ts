@@ -2,15 +2,19 @@ import { Injectable } from '@angular/core';
 import { ScanData } from '../../models/scan-data.model';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
-import { ModalController } from 'ionic-angular';//se esta libreria para el modals
+import { ModalController, Platform } from 'ionic-angular';//se esta libreria para el modals
 import { MapaPage } from '../../pages/mapa/mapa';
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
 
 @Injectable()
 export class HistorialProvider {
 
   private _historial:ScanData[] = [];//se crea un array vacio para guardar la informacion de tipo ScanData
 //se incluye "private iab: InAppBrowser" en el constructor para implementarlo en la pagina
-  constructor(private iab: InAppBrowser, private modalCtrl: ModalController) {
+  constructor(private iab: InAppBrowser,
+              private modalCtrl: ModalController, 
+              private contacts: Contacts, 
+              private platform:Platform) {
   }
 //se crea la funcion para guardar en el array 
   agregarHistorial( texto:string ){
@@ -36,10 +40,72 @@ export class HistorialProvider {
         this.modalCtrl.create( MapaPage, { coords: scanData.info } ).present();//se tiene que colocar la palabra "present()"
       break;
 
+      case "contacto":
+        this.crearContacto( scanData.info );
+      break;
+
       default:
       console.error("tipo no soportado");
     }
   }
+
+  private crearContacto(texto:string){
+    let campos:any = this.parse_vcard(texto);
+    console.log(campos);
+    let nombre = campos['fn'];
+    let telefono = campos.tel[0].value[0];
+    if(!this.platform.is('cordova')){
+      console.warn("no se puede crear el contacto en la computadora");
+      return;
+    }
+
+    let contact: Contact = this.contacts.create();
+    contact.name = new ContactName()
+  }
+
+  private parse_vcard( input:string ) {
+
+    var Re1 = /^(version|fn|title|org):(.+)$/i;
+    var Re2 = /^([^:;]+);([^:]+):(.+)$/;
+    var ReKey = /item\d{1,2}\./;
+    var fields = {};
+
+    input.split(/\r\n|\r|\n/).forEach(function (line) {
+        var results, key;
+
+        if (Re1.test(line)) {
+            results = line.match(Re1);
+            key = results[1].toLowerCase();
+            fields[key] = results[2];
+        } else if (Re2.test(line)) {
+            results = line.match(Re2);
+            key = results[1].replace(ReKey, '').toLowerCase();
+
+            var meta = {};
+            results[2].split(';')
+                .map(function (p, i) {
+                var match = p.match(/([a-z]+)=(.*)/i);
+                if (match) {
+                    return [match[1], match[2]];
+                } else {
+                    return ["TYPE" + (i === 0 ? "" : i), p];
+                }
+            })
+                .forEach(function (p) {
+                meta[p[0]] = p[1];
+            });
+
+            if (!fields[key]) fields[key] = [];
+
+            fields[key].push({
+                meta: meta,
+                value: results[3].split(';')
+            })
+        }
+    });
+
+    return fields;
+  };
 
   cargarHistorial(){
     return this._historial;
