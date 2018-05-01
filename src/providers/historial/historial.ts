@@ -5,6 +5,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ModalController, Platform, ToastController } from 'ionic-angular';//se esta libreria para los toast o notificaciones emergentes
 import { MapaPage } from '../../pages/mapa/mapa';
 import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 @Injectable()
 export class HistorialProvider {
@@ -16,7 +17,8 @@ export class HistorialProvider {
               private modalCtrl: ModalController, 
               private contacts: Contacts, 
               private platform:Platform,
-              private toastCtrl:ToastController) {
+              private toastCtrl:ToastController,
+              private emailComposer: EmailComposer) {
   }
 //se crea la funcion para guardar en el array 
   agregarHistorial( texto:string ){
@@ -46,10 +48,25 @@ export class HistorialProvider {
         this.crearContacto( scanData.info );//se coloca la condicion si se crea el contacto
       break;
 
+      case "email":
+        let htmlLink =  scanData.info;
+
+        htmlLink = htmlLink.replace("MATMSG:TO:","mailto:");
+        htmlLink = htmlLink.replace(";SUB:","?subject=");
+        htmlLink = htmlLink.replace(";BODY:","&body=");
+        htmlLink = htmlLink.replace(";;","");
+        htmlLink = htmlLink.replace(/ /g,"%20");
+
+        console.log(htmlLink);
+        this.iab.create( htmlLink, "_system" );
+
+      break;
+
       default:
       console.error("tipo no soportado");
     }
   }
+
 
   private crearContacto(texto:string){
     /*en crear contacto se esta recibiendo un texto que es el escaneo (siempre es un string)

@@ -13,6 +13,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HistorialProvider } from '../providers/historial/historial';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Contacts } from '@ionic-native/contacts';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 //mapas
 //se importa esta libreria y se coloca en los "imports" lo que figura en la pagina para igresar nuestra api-key
@@ -46,6 +47,7 @@ import { AgmCoreModule } from '@agm/core';
     SplashScreen,
     BarcodeScanner,
     InAppBrowser,
+    EmailComposer,
     Contacts,
     HistorialProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

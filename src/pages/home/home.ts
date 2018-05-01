@@ -30,7 +30,7 @@ export class HomePage {
       //scan del dispositivo
       //se manda el string que pide el metodo "agregarHistorial" esto es solo un ejemplo de lo que resibe
       //la camara cuando scanea un codigo qr vcard
-      this._historialProvider.agregarHistorial( `BEGIN:VCARD
+      /*this._historialProvider.agregarHistorial( `BEGIN:VCARD
 VERSION:2.1
 N:Kent;Clark
 FN:Clark Kent
@@ -39,7 +39,8 @@ TEL;HOME;VOICE:12345
 TEL;TYPE=cell:67890
 ADR;TYPE=work:;;;
 EMAIL:clark@superman.com
-END:VCARD` );
+END:VCARD` );*/
+      this._historialProvider.agregarHistorial("MATMSG:TO:nicth.giraldo@hotmail.com;SUB:primer mensaje;BODY:esto es mi primer mensaje enviado desde una app de ionic;;");
       return;
     }
 //se trae toda la informacion de "barcodeData" y se muestra parte por parte para poder verla en la consola
