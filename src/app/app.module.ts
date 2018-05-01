@@ -7,7 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage, GuardadosPage, MapaPage, TabsPage } from '../pages/index.paginas';
 
-//plugins
+//plugins,todos los plugins al ser solamente recursos para la app se agregan plenamente en "providers" ya que no
+//son paginas si no elementos que se utilizaran de librerias importadas en donde se necesitan 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'; 
 import { HistorialProvider } from '../providers/historial/historial';
 import { InAppBrowser } from '@ionic-native/in-app-browser';

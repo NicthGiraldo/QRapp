@@ -28,6 +28,8 @@ export class HomePage {
       //this._historialProvider.agregarHistorial("http://google.com");//se llama la funcion de "historial.ts"
       //this._historialProvider.agregarHistorial("geo: 40.46366700000001, -3.7492200000000366");//se manda informacion simulando el  
       //scan del dispositivo
+      //se manda el string que pide el metodo "agregarHistorial" esto es solo un ejemplo de lo que resibe
+      //la camara cuando scanea un codigo qr vcard
       this._historialProvider.agregarHistorial( `BEGIN:VCARD
 VERSION:2.1
 N:Kent;Clark

@@ -31,3 +31,7 @@ especial atencion en el apartado para dividir la informacion del string con spli
 se modificaron variables y al pagina de inicio de la aplicacion para simular el scaneo desde el dispositivo y 
 poder realizar las pruebas necesarioas, se creo un boton y se modifico tambien el modelo para que signara 
 un tipo mapa*/
+
+/*commit insertando contactos a la agenda del dispositivo 2.0
+se comenta todos los cambios referentes a guardar el contacto, incluyendo tambien lo que se realizo en el
+commit 1.0 */

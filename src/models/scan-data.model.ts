@@ -6,12 +6,14 @@ export class ScanData{
         this.tipo = "no definido";
         this.info = texto;
         
-        if(texto.startsWith("http")){
+        if(texto.startsWith("http")){//el termino "startsWith" se refiere a cuando comienza el string por ese
+        //termino que estamos colocando, en este caso si el string recibido comienza con "http" significa que
+        //es una pagina web y con esta informacion se trabajara en "historia.ts"
             this.tipo = "http";
         }else if( texto.startsWith("geo")){//se coloca la condicional para determinar si es un mapa
             //cuando se escanea con el dispositivo manda la informacion con la palabra reservada "geo" ese sera el identificador
             this.tipo = "mapa";
-        }else if(texto.startsWith("BEGIN:VCARD")){
+        }else if(texto.startsWith("BEGIN:VCARD")){//cuando se scanea se recibe un string que comienza con "BEGIN:VCARD"
             this.tipo = "contacto"
         }
     }
